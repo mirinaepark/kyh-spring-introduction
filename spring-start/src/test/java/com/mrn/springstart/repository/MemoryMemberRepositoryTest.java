@@ -13,6 +13,8 @@ class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
+    MemberRepository memberRepository = new MemoryMemberRepository();
+
     @AfterEach
     public void afterEach() {
         repository.clearStore();
