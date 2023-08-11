@@ -13,8 +13,9 @@ class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
-    MemberRepository memberRepository = new MemoryMemberRepository();
 
+
+    //저장된 데이터를 초기화 해주는 메서드
     @AfterEach
     public void afterEach() {
         repository.clearStore();
