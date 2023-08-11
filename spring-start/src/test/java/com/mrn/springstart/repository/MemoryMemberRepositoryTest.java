@@ -16,10 +16,10 @@ class MemoryMemberRepositoryTest {
 
 
     //저장된 데이터를 초기화 해주는 메서드
-    @AfterEach
+    /*@AfterEach
     public void afterEach() {
         repository.clearStore();
-    }
+    }*/
 
     @Test
     public void save(){
