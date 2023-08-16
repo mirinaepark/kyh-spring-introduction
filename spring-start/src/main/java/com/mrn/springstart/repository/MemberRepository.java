@@ -1,14 +1,15 @@
 package com.mrn.springstart.repository;
 
-import com.mrn.springstart.domain.Member;
+import com.mrn.springstart.domain.MemberDto;
+import com.mrn.springstart.domain.MemberDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository {
-    Member save(Member member);
-    Optional<Member> findById(Long id);
-    Optional<Member> findByName(String name);
-    List<Member> findAll();
+    MemberDto save(MemberDto memberDto);
+    Optional<MemberDto>  findById(Long id);
+    Optional<MemberDto>  findByName(String name);
+    List<MemberDto> findAll();
 
 }

@@ -1,38 +1,38 @@
 package com.mrn.springstart.repository;
 
-import com.mrn.springstart.domain.Member;
+import com.mrn.springstart.domain.MemberDto;
 
 import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static Map<Long, MemberDto> store = new HashMap<>();
     private static long sequence = 0L;
 
 
     @Override
-    public Member save(Member member) {
-        member.setId(++sequence);
-        store.put(member.getId(), member);
-        return member;
+    public MemberDto save(MemberDto memberDto) {
+        memberDto.setId(++sequence);
+        store.put(memberDto.getId(), memberDto);
+        return memberDto;
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
+    public Optional<MemberDto> findById(Long id) {
         return Optional.ofNullable(store.get(id));
 
     }
 
     @Override
-    public Optional<Member> findByName(String name) {
+    public Optional<MemberDto> findByName(String name) {
         return store.values().stream()
-                .filter(member -> member.getName().equals(name))
+                .filter(MemberDto -> MemberDto.getName().equals(name))
                 .findAny();
 
     }
 
     @Override
-    public List<Member> findAll() {
+    public List<MemberDto>  findAll() {
         return new ArrayList<>(store.values());
     }
 

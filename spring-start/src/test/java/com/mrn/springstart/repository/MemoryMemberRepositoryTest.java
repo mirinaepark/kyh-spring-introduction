@@ -1,6 +1,7 @@
 package com.mrn.springstart.repository;
 
-import com.mrn.springstart.domain.Member;
+import com.mrn.springstart.domain.MemberDto;
+import com.mrn.springstart.domain.MemberDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,29 +21,29 @@ class MemoryMemberRepositoryTest {
 
     @Test
     public void save(){
-        Member member = new Member();
-        member.setName("spring");
+        MemberDto memberDto = new MemberDto();
+        memberDto.setName("spring");
 
-        repository.save(member);
+        repository.save(memberDto);
 
-        Member result = repository.findById(member.getId()).get();
+        MemberDto result = repository.findById(memberDto.getId()).get();
 
-        assertThat(member).isEqualTo(result);
+        assertThat(memberDto).isEqualTo(result);
 
     }
     
     @Test
     public void findByName(){
 
-        Member member1 = new Member();
+        MemberDto member1 = new MemberDto();
         member1.setName("spring1");
         repository.save(member1);
         
-        Member member2 = new Member();
+        MemberDto member2 = new MemberDto();
         member2.setName("spring1");
         repository.save(member2);
 
-        Member result = repository.findByName("spring1").get();
+        MemberDto result = repository.findByName("spring1").get();
 
         assertThat(result).isEqualTo(member1);
 
@@ -51,15 +52,15 @@ class MemoryMemberRepositoryTest {
     @Test
     public void findAll(){
 
-        Member member1 = new Member();
+        MemberDto member1 = new MemberDto();
         member1.setName("spring1");
         repository.save(member1);
 
-        Member member2 = new Member();
+        MemberDto member2 = new MemberDto();
         member2.setName("spring2");
         repository.save(member2);
 
-        List<Member> result = repository.findAll();
+        List<MemberDto>  result = repository.findAll();
 
         assertThat(result.size()).isEqualTo(2);
 
