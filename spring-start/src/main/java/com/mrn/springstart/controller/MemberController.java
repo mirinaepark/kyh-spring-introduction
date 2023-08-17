@@ -1,12 +1,19 @@
 package com.mrn.springstart.controller;
 
-import org.springframework.stereotype.Component;
 
-@Component
+import com.mrn.springstart.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller
 public class MemberController {
 
-    public MemberController() {
+    private final MemberService memberService;
 
+    @Autowired
+    public MemberController(MemberService memberService) {
+
+        this.memberService = memberService;
     }
 
 }
